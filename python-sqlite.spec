@@ -13,7 +13,6 @@ Source0:	http://dl.sourceforge.net/pysqlite/pysqlite-%{version}.tar.gz
 URL:		http://pysqlite.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.3
-BuildRequires:	rpm-pythonprov
 BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
