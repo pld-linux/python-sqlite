@@ -8,14 +8,14 @@ Name:		python-%{module}
 Version:	0.4.3
 Release:	1
 License:	Free
+Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pysqlite/pysqlite-%{version}.tar.gz
 # Source0-md5:	a55ae9b6f1968a5fe0df10731a5b5a7c
 URL:		http://pysqlite.sourceforge.net/
-Group:		Development/Languages/Python
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.2
-BuildRequires:	sqlite-devel
 BuildRequires:	rpm-pythonprov
+BuildRequires:	sqlite-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,6 +25,14 @@ possible. One problem is that SQLite returns everything as text. This
 is a result of SQLite's internal representation of data, however it
 still may be possible to return data in the type specified by the
 table definitions.
+
+%description -l pl
+Ten pakiet zawiera modu³ rozszerzenia dla osadzalnej relacyjnej bazy
+danych SQLite. Próbuje on byæ w zgodzie ze specyfikacj± Python DB-API
+v2 na tyle, na ile to mo¿liwe. Jednym problemem jest to, ¿e SQLite
+zwraca wszystko jako tekst. Jest to wynik wewnêtrznej reprezentacji
+danych przez SQLite; mimo to nadal jest mo¿liwe zwracanie danych typu
+podanego w definicji tabeli.
 
 %prep
 %setup -q -n pysqlite-%{version}
@@ -40,7 +48,8 @@ install -d $RPM_BUILD_ROOT%{py_sitedir}
 
 python setup.py install \
         --root=$RPM_BUILD_ROOT --optimize=2
-rm $RPM_BUILD_ROOT/%{py_sitedir}/%{module}/*.py
+
+rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{module}/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -50,4 +59,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README LICENSE
 %dir %{py_sitedir}/%{module}
 %{py_sitedir}/%{module}/*.py[co]
-%{py_sitedir}/_%{module}.so
+%attr(755,root,root) %{py_sitedir}/_%{module}.so
