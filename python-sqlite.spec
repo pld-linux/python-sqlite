@@ -14,7 +14,7 @@ URL:		http://pysqlite.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	rpm-pythonprov
-BuildRequires:	sqlite-devel >= 3.0.0
+BuildRequires:	sqlite3-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
