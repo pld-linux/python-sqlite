@@ -1,6 +1,6 @@
 %include	/usr/lib/rpm/macros.python
 
-%define         module sqlite
+%define         module	sqlite
 
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl):	Interfejs do SQLite kompatybilny z DB API v2.0
