@@ -1,5 +1,5 @@
 
-%define         module	sqlite
+%define		module	sqlite
 
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl):	Interfejs do SQLite kompatybilny z DB API v2.0
@@ -46,7 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}/%{name}-%{version}}
 
 python setup.py install \
-        --root=$RPM_BUILD_ROOT --optimize=2
+	--root=$RPM_BUILD_ROOT --optimize=2
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{module}/*.py
 cp -aR examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
