@@ -5,12 +5,12 @@
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl):	Interfejs do SQLite kompatybilny z DB API v2.0
 Name:		python-%{module}
-Version:	0.4.3
-Release:	4
+Version:	0.5.0
+Release:	1
 License:	Free
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pysqlite/pysqlite-%{version}.tar.gz
-# Source0-md5:	a55ae9b6f1968a5fe0df10731a5b5a7c
+# Source0-md5:	ecda08cd4e6d8c2af774a0f74a183122
 URL:		http://pysqlite.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.3
@@ -35,7 +35,7 @@ danych przez SQLite; mimo to nadal jest mo¿liwe zwracanie danych typu
 podanego w definicji tabeli.
 
 %prep
-%setup -q -n pysqlite-%{version}
+%setup -q -n pysqlite
 
 %build
 CFLAGS="%{rpmcflags}"
@@ -50,7 +50,6 @@ python setup.py install \
         --root=$RPM_BUILD_ROOT --optimize=2
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{module}/*.py
-find examples -name CVS -print | xargs rm -r
 cp -aR examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
