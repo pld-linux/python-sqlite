@@ -4,12 +4,12 @@
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl):	Interfejs do SQLite kompatybilny z DB API v2.0
 Name:		python-%{module}
-Version:	0.5.0
+Version:	0.5.1
 Release:	2
 License:	Free
 Group:		Development/Languages/Python
 Source0:	http://dl.sourceforge.net/pysqlite/pysqlite-%{version}.tar.gz
-# Source0-md5:	ecda08cd4e6d8c2af774a0f74a183122
+# Source0-md5:	4cf1ac9e8d53a74cedd80dc536018efe
 URL:		http://pysqlite.sourceforge.net/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 2.3
