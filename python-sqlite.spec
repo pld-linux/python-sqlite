@@ -39,7 +39,7 @@ podanego w definicji tabeli.
 
 %build
 CFLAGS="%{rpmcflags}"
-export CLFAGS
+export CFLAGS
 python setup.py build
 
 %install
