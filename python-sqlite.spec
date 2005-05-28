@@ -4,13 +4,13 @@
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl):	Interfejs do SQLite kompatybilny z DB API v2.0
 Name:		python-%{module}
-Version:	1.1.1
-Release:	3
+Version:	2.0.3
+Release:	1
 License:	Free
 Group:		Development/Languages/Python
-Source0:	http://dl.sourceforge.net/pysqlite/pysqlite-%{version}.tar.gz
-# Source0-md5:	b95fe36298288171fae227b67bfc09ac
-URL:		http://pysqlite.sourceforge.net/
+Source0:	http://initd.org/pub/software/pysqlite/releases/2.0/%{version}/pysqlite-%{version}.tar.gz
+# Source0-md5:	e0e027806e39f24044d55715f38ac0cd
+URL:		http://www.pysqlite.org/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.3
 BuildRequires:	sqlite3-devel
@@ -33,7 +33,7 @@ danych przez SQLite; mimo to nadal jest mo¿liwe zwracanie danych typu
 podanego w definicji tabeli.
 
 %prep
-%setup -q -n pysqlite
+%setup -q -n pysqlite-%{version}
 
 %build
 CFLAGS="%{rpmcflags}"
@@ -48,16 +48,18 @@ python setup.py install \
 	--root=$RPM_BUILD_ROOT --optimize=2
 
 rm -f $RPM_BUILD_ROOT%{py_sitedir}/%{module}/*.py
-cp -aR examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -aR doc/code/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README LICENSE doc/rest/manual.txt
-%dir %{py_sitedir}/%{module}
-%{py_sitedir}/%{module}/*.py[co]
+%doc doc/*.html doc/*.css
+%dir %{py_sitedir}/pysqlite2
+%{py_sitedir}/pysqlite2/*.py[co]
+%attr(755,root,root) %{py_sitedir}/pysqlite2/_%{module}.so
+%dir %{py_sitedir}/pysqlite2/test
+%{py_sitedir}/pysqlite2/test/*.py[co]
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/*
-%attr(755,root,root) %{py_sitedir}/_%{module}.so
