@@ -2,7 +2,7 @@
 %define		module	sqlite
 
 Summary:	A DB API v2.0 compatible interface to SQLite
-Summary(pl.UTF-8):   Interfejs do SQLite kompatybilny z DB API v2.0
+Summary(pl.UTF-8):	Interfejs do SQLite kompatybilny z DB API v2.0
 Name:		python-%{module}
 Version:	2.3.2
 Release:	2
