@@ -14,6 +14,7 @@ URL:		http://www.pysqlite.org/
 %pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	sqlite3-devel >= 3.6.11
+Provides:	python(sqlite)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
