@@ -11,9 +11,9 @@ Group:		Development/Languages/Python
 Source0:	http://oss.itsystementwicklung.de/download/pysqlite/2.5/%{version}/pysqlite-%{version}.tar.gz
 # Source0-md5:	d165bdaf753870348018cee07ac1422c
 URL:		http://www.pysqlite.org/
-%pyrequires_eq	python-modules
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	sqlite3-devel >= 3.6.11
+%pyrequires_eq	python-modules
 Provides:	python(sqlite)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
