@@ -8,9 +8,9 @@ Version:	2.6.0
 Release:	1
 License:	zlib/libpng
 Group:		Development/Languages/Python
-Source0:	http://pypi.python.org/packages/source/p/pysqlite/pysqlite-%{version}.tar.gz#md5=
-# Source0-md5:	f80397bd211a15bbe4a8646e738c35e6
-URL:		http://pypi.python.org/pypi/pysqlite/
+Source0:	http://pysqlite.googlecode.com/files/pysqlite-%{version}.tar.gz
+# Source0-md5:	fc92618b3b39d02e6ff10dc467c36640
+URL:		http://pysqlite.googlecode.com/
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	sqlite3-devel >= 3.6.11
 %pyrequires_eq	python-modules
