@@ -12,6 +12,8 @@ Source0:	http://pysqlite.googlecode.com/files/pysqlite-%{version}.tar.gz
 # Source0-md5:	fc92618b3b39d02e6ff10dc467c36640
 URL:		http://pysqlite.googlecode.com/
 BuildRequires:	python-devel >= 1:2.5
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	sqlite3-devel >= 3.6.11
 %pyrequires_eq	python-modules
 Provides:	python(sqlite)
