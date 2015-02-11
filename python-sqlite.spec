@@ -1,11 +1,9 @@
-
 %define		module	sqlite
-
 Summary:	A DB API v2.0 compatible interface to SQLite
 Summary(pl.UTF-8):	Interfejs do SQLite kompatybilny z DB API v2.0
 Name:		python-%{module}
 Version:	2.6.3
-Release:	1
+Release:	2
 License:	zlib/libpng
 Group:		Development/Languages/Python
 Source0:	http://pysqlite.googlecode.com/files/pysqlite-%{version}.tar.gz
@@ -15,7 +13,7 @@ BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
 BuildRequires:	sqlite3-devel >= 3.6.11
-%pyrequires_eq	python-modules
+Requires:	python-modules
 Provides:	python(sqlite)
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -39,18 +37,19 @@ podanego w definicji tabeli.
 %setup -q -n pysqlite-%{version}
 
 %build
-CFLAGS="%{rpmcflags}"
-export CFLAGS
-python setup.py build
+CFLAGS="%{rpmcflags}" \
+%{__python} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}/%{name}-%{version}}
 
 PYTHONPATH=$RPM_BUILD_ROOT%{py_sitedir} \
-	python setup.py install \
-	--root=$RPM_BUILD_ROOT --optimize=2
+	%{__python} setup.py install \
+	--optimize=2 \
+	--root=$RPM_BUILD_ROOT
 
+rm -rf $RPM_BUILD_ROOT%{py_sitedir}/pysqlite2/test/py25
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/pysqlite2/{,test/}*.py \
 	$RPM_BUILD_ROOT%{_prefix}/pysqlite2-doc
 
