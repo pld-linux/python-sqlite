@@ -37,17 +37,14 @@ podanego w definicji tabeli.
 %setup -q -n pysqlite-%{version}
 
 %build
-CFLAGS="%{rpmcflags}" \
-%{__python} setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{py_sitedir},%{_examplesdir}/%{name}-%{version}}
 
 PYTHONPATH=$RPM_BUILD_ROOT%{py_sitedir} \
-	%{__python} setup.py install \
-	--optimize=2 \
-	--root=$RPM_BUILD_ROOT
+	%py_install
 
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/pysqlite2/test/py25
 rm -rf $RPM_BUILD_ROOT%{py_sitedir}/pysqlite2/{,test/}*.py \
