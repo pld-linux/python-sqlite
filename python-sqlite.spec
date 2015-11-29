@@ -9,6 +9,7 @@ Group:		Development/Languages/Python
 Source0:	http://pysqlite.googlecode.com/files/pysqlite-%{version}.tar.gz
 # Source0-md5:	711afa1062a1d2c4a67acdf02a33d86e
 URL:		http://pysqlite.googlecode.com/
+BuildRequires:	rpmbuild(macros) >= 1.710
 BuildRequires:	python-devel >= 1:2.5
 BuildRequires:	python-modules
 BuildRequires:	rpm-pythonprov
